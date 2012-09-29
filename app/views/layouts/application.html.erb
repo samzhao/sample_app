@@ -12,14 +12,14 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     
-	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= stylesheet_link_tag "application", :media => "all" %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
 	<%= render 'layouts/header' %>
 	<div class="container">
 		<% flash.each do |key, value| %>
-			<div class="alert alert-<%= key %>"><%= value %></div>
+			<%= content_tag(:div, content_tag(:button, "×", type: "button", class: "close", 'data-dismiss' => 'alert') + value.html_safe, class: "alert alert-#{key} fade in") %>
 		<% end %>
 		<%= yield %>
 		<%= render 'layouts/footer' %>
