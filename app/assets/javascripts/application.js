@@ -13,5 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree .
 //= require turbolinks
+//= require_tree .
+
+$(function() {
+	$('textarea').each(function(){
+		$(this).after('<br><span id="count"></span>');
+		$(this).keyup(function(){
+			var tMax = $(this).attr("maxLength");
+			var charleft = tMax - $(this).val().length;
+			if (charleft < 0) charleft = 0;
+			$('#count').text('Characters left: ' + charleft);
+		}).keyup();
+	});
+});
