@@ -5,3 +5,18 @@
 	</div>
 	<%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('textarea').each(function(){
+				$(this).after('<br><span id="count"></span>');
+				$(this).keyup(function(){
+					var tMax = $(this).attr("maxLength");
+					var charleft = tMax - $(this).val().length;
+					if (charleft < 0) charleft = 0;
+					$('#count').text('Characters left: ' + charleft);
+				}).keyup();
+			});
+		});
+	</script>

@@ -37,8 +37,6 @@ end
 
 gem 'jquery-rails', '2.0.2'
 
-gem 'turbolinks'
-
 group :test do
 	gem 'capybara', '1.1.2'
 	gem 'rb-inotify', '0.8.8'
