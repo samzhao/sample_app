@@ -1,10 +1,11 @@
 <% provide(:title, "All users") %>
 <h1>All users</h1>
 
-<%= will_paginate %>
+<%= form_tag users_path, method: "get", id: "user_search" do %>
+	<p><%= text_field_tag :search, params[:search] %></p>
+	<p><%= submit_tag "Search for user", name: nil, class: "btn btn-info" %></p>
+<% end %>
 
-<ul class="users">
-	<%= render @users %>
-</ul>
-
-<%= will_paginate %>
+<div id="all_users">
+	<%= render "users_ajax" %>
+</div>
